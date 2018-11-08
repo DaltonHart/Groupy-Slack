@@ -25,7 +25,7 @@ bot.on("start", function() {
     console.log(result);
     });
 
-bot.on("message", function(data) {
+bot.on("message", (data) => {
     
     if (data.type !== "message") {
         return;
@@ -33,7 +33,7 @@ bot.on("message", function(data) {
     handleMessage(data.text);
     })
 
-function handleMessage(message) {
+handleMessage = (message) => {
     switch(message) {
         case "hi":
         case "hello":
@@ -48,7 +48,7 @@ function handleMessage(message) {
         }
     }
 
-function sendGreeting() {
+sendGreeting = () => {
     let params = {
         icon_emoji: ':epic-ride:'
     };
@@ -56,7 +56,7 @@ function sendGreeting() {
     bot.postMessageToChannel(channel, greeting, params);
     }
 
-function getGreeting() {
+getGreeting = () => {
     let greetings = [
         "hello!",
         "hi there!",
@@ -67,7 +67,7 @@ function getGreeting() {
     return greetings[Math.floor(Math.random() * greetings.length)];
     }
 
-function sendPairs(){
+sendPairs = () => {
     let params = {
         icon_emoji: ':epic-ride:'
     };
