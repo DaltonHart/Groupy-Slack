@@ -21,5 +21,13 @@
   "bugs": {
     "url": "https://github.com/DaltonHart/Groupy-Slack/issues"
   },
-  "homepage": "https://github.com/DaltonHart/Groupy-Slack#readme"
+  "homepage": "https://github.com/DaltonHart/Groupy-Slack#readme",
+  "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "eslint": "^5.8.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0"
+  }
 }
