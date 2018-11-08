@@ -2,7 +2,10 @@ const
     SlackBot = require("slackbots"),
     config = require("./config.json"),
     token = config.token,
-    channel = "slack-bot-testing"
+    channel = "slack-bot-testing",
+    shuffleFile = require('./shuffle.js'),
+    shuffleFunc = shuffleFile.shuffle,
+    students = shuffleFile.students
 
 let bot = new SlackBot({
     token: token,
@@ -36,21 +39,25 @@ function handleMessage(message) {
         case "hello":
             sendGreeting();
             break;
+        case "pairs":
+            console.log('hello pairs');
+            sendPairs();
+            break;
         default:
             return;
         }
     }
 
 function sendGreeting() {
-    var params = {
+    let params = {
         icon_emoji: ':epic-ride:'
     };
-    var greeting = getGreeting();
+    let greeting = getGreeting();
     bot.postMessageToChannel(channel, greeting, params);
     }
 
 function getGreeting() {
-    var greetings = [
+    let greetings = [
         "hello!",
         "hi there!",
         "cheerio!",
@@ -59,3 +66,12 @@ function getGreeting() {
     ];
     return greetings[Math.floor(Math.random() * greetings.length)];
     }
+
+function sendPairs(){
+    let params = {
+        icon_emoji: ':epic-ride:'
+    };
+    let groups = shuffleFunc(students, 5);
+    console.log(groups);
+    bot.postMessageToChannel(channel, response , params)
+}
