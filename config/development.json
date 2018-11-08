@@ -1,0 +1,9 @@
+{
+    "slack": {
+      "fileUploadUrl": "https://slack.com/api/files.upload",
+      "Groupy": {
+          "fileUploadChannel": "#reporterbot_files",
+          "botToken": "xoxb-400377703367-475142004418-Gf9HsmMOOFk4gUAeB6t6S4Ph"
+      }
+    }
+  }
