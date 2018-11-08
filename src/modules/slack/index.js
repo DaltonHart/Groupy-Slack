@@ -1,4 +1,4 @@
-mport fs from 'fs';
+import fs from 'fs';
 import config from 'config';
 import request from 'request';
 
