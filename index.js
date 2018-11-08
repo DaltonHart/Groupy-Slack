@@ -1,4 +1,3 @@
-	
 const 
     SlackBot = require("slackbots"),
     config = require("./config.json"),
@@ -32,4 +31,20 @@ function handleMessage(message) {
         default:
             return;
         }
+    }
+
+function sendGreeting() {
+    var greeting = getGreeting();
+    bot.postMessageToChannel(channel, greeting);
+    }
+
+function getGreeting() {
+    var greetings = [
+        "hello!",
+        "hi there!",
+        "cheerio!",
+        "how do you do!",
+        "¡hola!"
+    ];
+    return greetings[Math.floor(Math.random() * greetings.length)];
     }
