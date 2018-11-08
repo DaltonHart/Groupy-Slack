@@ -1,0 +1,25 @@
+{
+  "name": "groupy-slack",
+  "version": "1.0.0",
+  "description": "A slack application to split a team into groups.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DaltonHart/Groupy-Slack.git"
+  },
+  "keywords": [
+    "slack",
+    "bot",
+    "group",
+    "managment"
+  ],
+  "author": "dalton hart daltonvaren@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DaltonHart/Groupy-Slack/issues"
+  },
+  "homepage": "https://github.com/DaltonHart/Groupy-Slack#readme"
+}
