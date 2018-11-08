@@ -7,7 +7,7 @@ import {
   fileExists,
   getReportFilesDir
 } from '../../utils';
-
+import { postChatMessage, uploadFile } from '../slack';
 // Reports
 import getUserActivity from './getUserActivity';
 
