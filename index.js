@@ -6,19 +6,27 @@ const
 
 let bot = new SlackBot({
     token: token,
-    name: "groupy"
+    name: "Groupy"
     });
 
 bot.on("start", function() {
-    bot.postMessageToChannel(channel, "Hello world!");
+    var params = {
+        icon_url: '/images/icon.png'
+    };
     console.log("Hello world!");
+    let channels = bot.getChannels()
+    let arr = channels._value.channels
+    var result = arr.filter(obj => {
+        return obj.name === channel
+      })
+    console.log(result);
     });
 
 bot.on("message", function(data) {
+    
     if (data.type !== "message") {
         return;
     }
-
     handleMessage(data.text);
     })
 
@@ -34,8 +42,11 @@ function handleMessage(message) {
     }
 
 function sendGreeting() {
+    var params = {
+        icon_emoji: ':epic-ride:'
+    };
     var greeting = getGreeting();
-    bot.postMessageToChannel(channel, greeting);
+    bot.postMessageToChannel(channel, greeting, params);
     }
 
 function getGreeting() {
