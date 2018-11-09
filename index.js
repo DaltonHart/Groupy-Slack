@@ -49,7 +49,7 @@ handleMessage = (message) => {
             break;
         case "groupy 2":
             console.log('hello pairs');
-            sendThree();
+            sendTwo();
             break;
         default:
             return;
@@ -73,7 +73,7 @@ sendThree = async () => {
     await groupsOutput(3);
 }
 
-sendThree = async () => {
+sendTwo = async () => {
     let response = `Here are your Groups!`
     await bot.postMessageToChannel(channel,response , params);
     await groupsOutput(2);
