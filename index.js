@@ -10,7 +10,7 @@ const
     app = express(),
     ping = require('heroku-self-ping')(`https://${process.env.HEROKU_APP_NAME}.herokuapp.com`);
 
-    ping();
+app.use(ping)
 
 let params = {
     icon_emoji: ':epic-ride:'
