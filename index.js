@@ -2,7 +2,7 @@ const
     SlackBot = require("slackbots"),
     // config = require("./config.json"),
     token = process.env.ENV_TOKEN,
-    channel = "slack-bot-tester",
+    channel = "wdi_sf_49_strictlybiz",
     shuffleFile = require('./shuffle.js'),
     shuffleFunc = shuffleFile.shuffle,
     students = shuffleFile.students,
