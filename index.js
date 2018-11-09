@@ -5,7 +5,9 @@ const
     channel = "slack-bot-testing",
     shuffleFile = require('./shuffle.js'),
     shuffleFunc = shuffleFile.shuffle,
-    students = shuffleFile.students
+    students = shuffleFile.students,
+    express = require('express'),
+    app = express()
 
 let params = {
     icon_emoji: ':epic-ride:'
@@ -23,7 +25,6 @@ bot.on("start", function() {
     var result = arr.filter(obj => {
         return obj.name === channel
       })
-    // console.log(result);
     });
 
 bot.on("message", (data) => {
@@ -40,15 +41,12 @@ handleMessage = (message) => {
             sendHelp();
             break;
         case "groupy pairs":
-            console.log('hello pairs');
             sendPairs();
             break;
         case "groupy 3":
-            console.log('hello pairs');
             sendThree();
             break;
         case "groupy 2":
-            console.log('hello pairs');
             sendTwo();
             break;
         default:
@@ -89,3 +87,6 @@ groupsOutput = (num) => {
 }
 
 
+app.listen(process.env.PORT || 8000, ()=>{
+    console.log('Listening to port');
+  })

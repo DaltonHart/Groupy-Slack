@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/DaltonHart/Groupy-Slack#readme",
   "dependencies": {
+    "express": "^4.16.4",
     "slackbots": "^1.2.0"
   }
 }
