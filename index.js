@@ -36,9 +36,8 @@ bot.on("message", (data) => {
 
 handleMessage = (message) => {
     switch(message) {
-        case "hi":
-        case "hello":
-            sendGreeting();
+        case "groupy help":
+            sendHelp();
             break;
         case "groupy pairs":
             console.log('hello pairs');
@@ -48,25 +47,18 @@ handleMessage = (message) => {
             console.log('hello pairs');
             sendThree();
             break;
+        case "groupy 2":
+            console.log('hello pairs');
+            sendThree();
+            break;
         default:
             return;
         }
     }
 
-sendGreeting = () => {
-    let greeting = getGreeting();
-    bot.postMessageToChannel(channel, greeting, params);
-    }
-
-getGreeting = () => {
-    let greetings = [
-        "hello!",
-        "hi there!",
-        "cheerio!",
-        "how do you do!",
-        "¡hola!"
-    ];
-    return greetings[Math.floor(Math.random() * greetings.length)];
+sendHelp = () => {
+    let response = `You can use the folloing commands: groupy pairs (returns everyone in pairs), groupy 2 (Two groups will be returned), groupy 3 (Three groups will be returned)`
+    bot.postMessageToChannel(channel, response, params);
     }
 
 sendPairs = async () => {
@@ -75,8 +67,19 @@ sendPairs = async () => {
     await groupsOutput(5);
 }
 
-groupsOutput = (num) => {
-    
+sendThree = async () => {
+    let response = `Here are your Groups!`
+    await bot.postMessageToChannel(channel,response , params);
+    await groupsOutput(3);
+}
+
+sendThree = async () => {
+    let response = `Here are your Groups!`
+    await bot.postMessageToChannel(channel,response , params);
+    await groupsOutput(2);
+}
+
+groupsOutput = (num) => { 
     let groups = shuffleFunc(students, num);
 
     Object.keys(groups).forEach(e => {
@@ -85,8 +88,4 @@ groupsOutput = (num) => {
     });
 }
 
-sendThree = async () => {
-    let response = `Here are your Groups!`
-    await bot.postMessageToChannel(channel,response , params);
-    await groupsOutput(3);
-}
+
