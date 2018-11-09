@@ -72,12 +72,12 @@ getGreeting = () => {
 sendPairs = async () => {
     let response = `Here are your Groups!`
     await bot.postMessageToChannel(channel,response , params);
-    await groupsOutput();
+    await groupsOutput(5);
 }
 
-groupsOutput = () => {
+groupsOutput = (num) => {
     
-    let groups = shuffleFunc(students, 5);
+    let groups = shuffleFunc(students, num);
 
     Object.keys(groups).forEach(e => {
         let response = `${groups[e]}`
@@ -88,15 +88,5 @@ groupsOutput = () => {
 sendThree = async () => {
     let response = `Here are your Groups!`
     await bot.postMessageToChannel(channel,response , params);
-    await groupsOutput3();
-}
-
-groupsOutput3 = () => {
-    
-    let groups = shuffleFunc(students, 3);
-
-    Object.keys(groups).forEach(e => {
-        let response = `${groups[e]}`
-        bot.postMessageToChannel(channel, response, params);
-    });
+    await groupsOutput(3);
 }
