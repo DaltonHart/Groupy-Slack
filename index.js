@@ -1,7 +1,7 @@
 const 
     SlackBot = require("slackbots"),
-    config = require("./config.json"),
-    token = config.token,
+    // config = require("./config.json"),
+    token = process.env.ENV_TOKEN,
     channel = "slack-bot-testing",
     shuffleFile = require('./shuffle.js'),
     shuffleFunc = shuffleFile.shuffle,
