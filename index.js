@@ -89,4 +89,8 @@ groupsOutput = (num) => {
 
 app.listen(process.env.PORT || 8000, ()=>{
     console.log('Listening to port');
-  })
+    })
+
+app.get('/', (req, res) => {
+    res.json({data: 'running'});
+    })
