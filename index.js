@@ -13,7 +13,7 @@ const
     require('heroku-self-ping')(`https://${process.env.HEROKU_APP_NAME}.herokuapp.com`);
 
 let params = {
-    icon_emoji: ':epic-ride:'
+    icon_emoji: ':partyparrot:'
     };
 
 let bot = new SlackBot({
