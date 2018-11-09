@@ -7,8 +7,10 @@ const
     shuffleFunc = shuffleFile.shuffle,
     students = shuffleFile.students,
     express = require('express'),
-    app = express()
+    app = express(),
+    ping = require('heroku-self-ping')(`https://${process.env.HEROKU_APP_NAME}.herokuapp.com`);
 
+    ping();
 
 let params = {
     icon_emoji: ':epic-ride:'

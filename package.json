@@ -24,6 +24,7 @@
   "homepage": "https://github.com/DaltonHart/Groupy-Slack#readme",
   "dependencies": {
     "express": "^4.16.4",
+    "heroku-self-ping": "^1.1.5",
     "slackbots": "^1.2.0"
   }
 }
