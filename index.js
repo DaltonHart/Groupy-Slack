@@ -7,22 +7,23 @@ const
     shuffleFunc = shuffleFile.shuffle,
     students = shuffleFile.students
 
+let params = {
+    icon_emoji: ':epic-ride:'
+    };
+
 let bot = new SlackBot({
     token: token,
     name: "Groupy"
     });
 
 bot.on("start", function() {
-    var params = {
-        icon_url: '/images/icon.png'
-    };
     console.log("Hello world!");
     let channels = bot.getChannels()
     let arr = channels._value.channels
     var result = arr.filter(obj => {
         return obj.name === channel
       })
-    console.log(result);
+    // console.log(result);
     });
 
 bot.on("message", (data) => {
@@ -39,7 +40,7 @@ handleMessage = (message) => {
         case "hello":
             sendGreeting();
             break;
-        case "pairs":
+        case "groupy pairs":
             console.log('hello pairs');
             sendPairs();
             break;
@@ -49,9 +50,6 @@ handleMessage = (message) => {
     }
 
 sendGreeting = () => {
-    let params = {
-        icon_emoji: ':epic-ride:'
-    };
     let greeting = getGreeting();
     bot.postMessageToChannel(channel, greeting, params);
     }
@@ -67,11 +65,18 @@ getGreeting = () => {
     return greetings[Math.floor(Math.random() * greetings.length)];
     }
 
-sendPairs = () => {
-    let params = {
-        icon_emoji: ':epic-ride:'
-    };
+sendPairs = async () => {
+    let response = `Here are your Groups!`
+    await bot.postMessageToChannel(channel,response , params);
+    await groupsOutput();
+}
+
+groupsOutput = () => {
+    
     let groups = shuffleFunc(students, 5);
-    console.log(groups);
-    bot.postMessageToChannel(channel, response , params)
+
+    Object.keys(groups).forEach(e => {
+        let response = `${groups[e]}`
+        bot.postMessageToChannel(channel, response, params);
+    });
 }
