@@ -44,6 +44,10 @@ handleMessage = (message) => {
             console.log('hello pairs');
             sendPairs();
             break;
+        case "groupy 3":
+            console.log('hello pairs');
+            sendThree();
+            break;
         default:
             return;
         }
@@ -74,6 +78,22 @@ sendPairs = async () => {
 groupsOutput = () => {
     
     let groups = shuffleFunc(students, 5);
+
+    Object.keys(groups).forEach(e => {
+        let response = `${groups[e]}`
+        bot.postMessageToChannel(channel, response, params);
+    });
+}
+
+sendThree = async () => {
+    let response = `Here are your Groups!`
+    await bot.postMessageToChannel(channel,response , params);
+    await groupsOutput3();
+}
+
+groupsOutput3 = () => {
+    
+    let groups = shuffleFunc(students, 3);
 
     Object.keys(groups).forEach(e => {
         let response = `${groups[e]}`
