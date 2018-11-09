@@ -24,7 +24,7 @@ bot.on("start", function() {
         return obj.name === channel
       })
     // console.log(result);
-    });
+    }).listen(process.env.PORT || 5000)
 
 bot.on("message", (data) => {
     
